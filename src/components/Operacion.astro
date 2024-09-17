@@ -41,42 +41,36 @@ if (op === 3) {
 }
 ---
 
-<section class="operacion flex flex-col md:flex-row text-9xl mx-auto">
-<div class="numero">
+<section class="operacion text-9xl">
+<span class="numero">
 	{num1}
-</div>
-<div class={"operador op" + op}>
+</span>
+<span class="operador">
 	{OPERACIONS[op].simbolo}
-</div>
-<div class="numero">
+</span>
+<span class="numero">
 	{num2}
-</div>
+</span>
 </section>
-<div class="resultado">
+<span class="resultado">
 	{eval(num1+OPERACIONS[op].op+num2)}
-</div>
+</span>
 
 
 <style>
 	.operacion {
 		font-weight: bold;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.8rem;
+		height: 100vh;
 	}
 	.numero {		
 		color: white;
 	}
 	.operador {
-	}
-	.op0 {
-		color: cyan
-	}
-	.op1 {
 		color: yellow
-	}
-	.op2 {
-		color: green
-	}
-	.op3 {
-		color: red
 	}
 	.resultado {
 		color: gray;

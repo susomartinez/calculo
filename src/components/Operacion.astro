@@ -1,0 +1,84 @@
+---
+interface Props {
+	max: number
+}
+
+const { max } = Astro.props;
+
+const OPERACIONS = [
+	{
+		nome: "suma",
+		simbolo: "+",
+		op: "+"
+	},
+	{
+		nome: "resta",
+		simbolo: "-",
+		op: "-"
+	},
+	{
+		nome: "multiplicacion",
+		simbolo: "x",
+		op: "*"
+	},
+	{
+		nome: "division",
+		simbolo: "÷",
+		op: "/"
+	}
+]
+
+const op = Math.floor(Math.random()*OPERACIONS.length);
+let num1 = Math.floor(Math.random()*max+1);
+let num2 = Math.floor(Math.random()*max+1);
+if (op === 1 && num1<num2){
+	const temp = num1;
+	num1 = num2;
+	num2 = temp;
+}
+if (op === 3) {
+	num1 = num1*num2;
+}
+---
+
+<section class="operacion flex flex-col md:flex-row text-9xl mx-auto">
+<div class="numero">
+	{num1}
+</div>
+<div class={"operador op" + op}>
+	{OPERACIONS[op].simbolo}
+</div>
+<div class="numero">
+	{num2}
+</div>
+</section>
+<div class="resultado">
+	{eval(num1+OPERACIONS[op].op+num2)}
+</div>
+
+
+<style>
+	.operacion {
+		font-weight: bold;
+	}
+	.numero {		
+		color: white;
+	}
+	.operador {
+	}
+	.op0 {
+		color: cyan
+	}
+	.op1 {
+		color: yellow
+	}
+	.op2 {
+		color: green
+	}
+	.op3 {
+		color: red
+	}
+	.resultado {
+		color: gray;
+	}
+</style>

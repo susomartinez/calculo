@@ -1,16 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Operacion from '../components/Operacion.astro';
+import Timer from '../components/Timer.astro';
+
 
 const ops=[0,1,2,3];
 const actual=0;
 ---
 
 <Layout title="Practica o cálculo">
-	<main class="center">
+	<main class="p-1">
+		<Timer />
 		<Operacion max={9}/>
+	
 	</main>
 </Layout>
 
 <style>
+
 </style>
